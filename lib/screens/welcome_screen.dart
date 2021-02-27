@@ -42,49 +42,55 @@ class _WelcomeScreenState extends State<WelcomeScreen>
     return SafeArea(
       child: Scaffold(
         backgroundColor: animation.value,
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: <Widget>[
-            new Image.asset('images/background.png'),
-            Padding(
-              padding: const EdgeInsets.only(left: 20.0),
-              child: Row(
-                children: <Widget>[
-                  TypewriterAnimatedTextKit(
-                    text: ['Chaos Games'],
-                    textStyle: TextStyle(
-                      fontSize: 45.0,
-                      fontWeight: FontWeight.w900,
-                    ),
+        body: SingleChildScrollView(
+          child: Container(
+            height: MediaQuery.of(context).size.height,
+            width: MediaQuery.of(context).size.width,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: <Widget>[
+                Expanded(child: Image.asset('images/background.png', fit: BoxFit.cover,)),
+                Padding(
+                  padding: const EdgeInsets.only(left: 20.0),
+                  child: Row(
+                    children: <Widget>[
+                      TypewriterAnimatedTextKit(
+                        text: ['Chaos Games'],
+                        textStyle: TextStyle(
+                          fontSize: 45.0,
+                          fontWeight: FontWeight.w900,
+                        ),
+                      ),
+                    ],
                   ),
-                ],
-              ),
+                ),
+                SizedBox(
+                  height: 32.5,
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 20.0, right: 20.0),
+                  child: RoundedButton(
+                    title: 'Log In',
+                    colour: Colors.red[400],
+                    onPressed: () {
+                      Navigator.pushNamed(context, LoginPage.id);
+                    },
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 20.0, right: 20.0),
+                  child: RoundedButton(
+                    title: 'Register',
+                    colour: Colors.red[400],
+                    onPressed: () {
+                      Navigator.pushNamed(context, RegisterPage.id);
+                    },
+                  ),
+                ),
+              ],
             ),
-            SizedBox(
-              height: 32.5,
-            ),
-            Padding(
-              padding: const EdgeInsets.only(left: 20.0, right: 20.0),
-              child: RoundedButton(
-                title: 'Log In',
-                colour: Colors.red[400],
-                onPressed: () {
-                  Navigator.pushNamed(context, LoginPage.id);
-                },
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(left: 20.0, right: 20.0),
-              child: RoundedButton(
-                title: 'Register',
-                colour: Colors.red[400],
-                onPressed: () {
-                  Navigator.pushNamed(context, RegisterPage.id);
-                },
-              ),
-            ),
-          ],
+          ),
         ),
       ),
     );
