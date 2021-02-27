@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "931817958628",
+    "project_id": "chaosgamers-952c1",
+    "storage_bucket": "chaosgamers-952c1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:931817958628:android:10b3a3ac75d7c4c12d50f1",
+        "android_client_info": {
+          "package_name": "com.example.chaosgames"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "931817958628-ijpft3a753p7eltt42k7b6vejha7fl0c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA6FMp4tinsywTvzVrwm9aMqDo4bc5MJ9M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "931817958628-ijpft3a753p7eltt42k7b6vejha7fl0c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

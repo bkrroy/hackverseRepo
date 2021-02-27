@@ -1,6 +1,10 @@
+import 'package:chaosgames/authentication_services.dart';
+import 'package:chaosgames/screens/homePage.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:chaosgames/component/rouded_button.dart';
 import 'package:chaosgames/constants.dart';
+import 'package:provider/provider.dart';
 
 class RegisterPage extends StatefulWidget {
   static const String id = 'register_screen';
@@ -16,6 +20,12 @@ class _RegisterPageState extends State<RegisterPage> {
 
   @override
   Widget build(BuildContext context) {
+    final firebaseUser = context.watch<User>();
+
+    if(firebaseUser != null){
+      return HomePage();
+    }
+
     return Scaffold(
       appBar: AppBar(
         title: Text('ChaosGames'),
@@ -74,7 +84,12 @@ class _RegisterPageState extends State<RegisterPage> {
             RoundedButton(
               title: 'Register',
               colour: Color(0xFFFF5252),
-              onPressed: () {},
+              onPressed: () {
+                context.read<AuthenticationService>().signUp(
+                  email: email,
+                  password: password,
+                );
+              },
             ),
           ],
         ),

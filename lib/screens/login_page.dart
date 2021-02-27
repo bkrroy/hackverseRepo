@@ -1,6 +1,11 @@
+import 'package:chaosgames/screens/homePage.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:chaosgames/constants.dart';
 import 'package:chaosgames/component/rouded_button.dart';
+import 'package:provider/provider.dart';
+import 'package:chaosgames/authentication_services.dart';
+
 
 class LoginPage extends StatefulWidget {
   static const String id = 'login_screen';
@@ -15,6 +20,12 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
+    final firebaseUser = context.watch<User>();
+
+    if(firebaseUser != null){
+      return HomePage();
+    }
+
     return Scaffold(
       appBar: AppBar(
         title: Text('ChaosGames'),
@@ -24,7 +35,7 @@ class _LoginPageState extends State<LoginPage> {
         child: Padding(
           padding: const EdgeInsets.all(24.0),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               Flexible(
@@ -36,9 +47,6 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ),
               ),
-              SizedBox(
-                height: 48.0,
-              ),
               TextField(
                 keyboardType: TextInputType.emailAddress,
                 textAlign: TextAlign.left,
@@ -46,9 +54,6 @@ class _LoginPageState extends State<LoginPage> {
                   email = value;
                 },
                 decoration: kTextFieldDecoration.copyWith(hintText: 'Email'),
-              ),
-              SizedBox(
-                height: 2.0,
               ),
               TextField(
                 obscureText: true,
@@ -64,7 +69,14 @@ class _LoginPageState extends State<LoginPage> {
               RoundedButton(
                 title: 'Log In',
                 colour: Color(0xFFFF5252),
-                onPressed: () {},
+                onPressed: () {
+                  print(email);
+                  print(password);
+                  context.read<AuthenticationService>().signIn(
+                    email: email,
+                    password: password,
+                  );
+                },
               ),
             ],
           ),

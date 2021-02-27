@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="default_web_client_id" translatable="false">931817958628-ijpft3a753p7eltt42k7b6vejha7fl0c.apps.googleusercontent.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">931817958628</string>
+    <string name="google_api_key" translatable="false">AIzaSyA6FMp4tinsywTvzVrwm9aMqDo4bc5MJ9M</string>
+    <string name="google_app_id" translatable="false">1:931817958628:android:10b3a3ac75d7c4c12d50f1</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyA6FMp4tinsywTvzVrwm9aMqDo4bc5MJ9M</string>
+    <string name="google_storage_bucket" translatable="false">chaosgamers-952c1.appspot.com</string>
+    <string name="project_id" translatable="false">chaosgamers-952c1</string>
+</resources>
