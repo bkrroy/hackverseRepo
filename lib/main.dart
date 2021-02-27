@@ -11,6 +11,9 @@ import 'package:chaosgames/authentication_services.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:chaosgames/screens/mainGameScreen.dart';
 
+import 'screens/homePage.dart';
+import 'screens/homePage.dart';
+
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
@@ -40,6 +43,7 @@ class ChaosGames extends StatelessWidget {
           GameJoin.id: (context) => GameJoin(),
           PlayerPage.id: (context) => PlayerPage(),
           GameScreen.id: (context) => GameScreen(),
+          HomePage.id : (context) => HomePage(),
         },
       ),
     );

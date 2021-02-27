@@ -5,7 +5,13 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:chaosgames/screens/gamePage.dart';
 
+import '../authentication_services.dart';
+import 'login_page.dart';
+import 'welcome_screen.dart';
+
 class HomePage extends StatefulWidget {
+  static const String id = 'home_page';
+
   @override
   _HomePageState createState() => _HomePageState();
 }
@@ -61,6 +67,29 @@ class _HomePageState extends State<HomePage> {
                     Navigator.pushNamed(context, GameJoin.id);
                   },
                 ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(24.0),
+              child: GestureDetector(
+                child: Container(
+                  height: 100,
+                  color: Color(0xFFFF5252),
+                  child: Center(
+                    child: Text(
+                      'Sign Out',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 40,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ),
+                onTap: (){
+                  Provider.of<AuthenticationService>(context, listen: false).signOut();
+                  Navigator.pushNamed(context, WelcomeScreen.id);
+                },
               ),
             ),
             SizedBox(

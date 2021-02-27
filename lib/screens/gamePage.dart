@@ -8,6 +8,9 @@ import 'dart:math';
 import 'package:sweetalert/sweetalert.dart';
 import 'package:chaosgames/screens/mainGameScreen.dart';
 
+import '../authentication_services.dart';
+import 'homePage.dart';
+
 class GamePage extends StatefulWidget {
   static const String id = 'game_screen';
 
@@ -62,7 +65,7 @@ class _GamePageState extends State<GamePage> {
                     child: DropdownButton<String>(
                       value: dropdownValue,
                       icon: Icon(
-                        Icons.arrow_downward,
+                        Icons.keyboard_arrow_down_outlined,
                         color: Color(0xFFFF5252),
                       ),
                       iconSize: 24,
@@ -115,7 +118,7 @@ class _GamePageState extends State<GamePage> {
                     child: DropdownButton<String>(
                       value: roundsValue,
                       icon: Icon(
-                        Icons.arrow_downward,
+                        Icons.keyboard_arrow_down_outlined,
                         color: Color(0xFFFF5252),
                       ),
                       iconSize: 24,
@@ -168,7 +171,7 @@ class _GamePageState extends State<GamePage> {
                     child: DropdownButton<String>(
                       value: time,
                       icon: Icon(
-                        Icons.arrow_downward,
+                        Icons.keyboard_arrow_down_outlined,
                         color: Color(0xFFFF5252),
                       ),
                       iconSize: 24,
@@ -198,17 +201,48 @@ class _GamePageState extends State<GamePage> {
                 ],
               ),
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                Padding(
-                  padding: EdgeInsets.all(15.0),
-                  child: FlatButton(
+            Padding(
+              padding: const EdgeInsets.only(left: 8.0, right: 8.0, bottom: 15),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  // This is for sign out
+                  FlatButton(
+                    color: Color(0xFFFF5252),
+                    child: Text(
+                      'Sign Out',
+                      style: TextStyle(
+                        fontSize: 20.0,
+                        color: Colors.white,
+                      ),
+                    ),
+                    onPressed: () {
+                      context.read<AuthenticationService>().signOut();
+                      Navigator.pushNamed(context, WelcomeScreen.id);
+                    },
+                  ),
+                  // This one is to go to home page
+                  FlatButton(
+                    color: Color(0xFFFF5252),
+                    child: Text(
+                      'Home',
+                      style: TextStyle(
+                        fontSize: 20.0,
+                        color: Colors.white,
+                      ),
+                    ),
+                    onPressed: () {
+                      context.read<AuthenticationService>().signOut();
+                      Navigator.pushNamed(context, HomePage.id);
+                    },
+                  ),
+                  // This is to create a game
+                  FlatButton(
                     color: Color(0xFFFF5252),
                     child: Text(
                       'Create',
                       style: TextStyle(
-                        fontSize: 25.0,
+                        fontSize: 20.0,
                         color: Colors.white,
                       ),
                     ),
@@ -228,8 +262,8 @@ class _GamePageState extends State<GamePage> {
                       //Navigator.pushNamed(context, GamePage.id);
                     },
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ],
         ),
