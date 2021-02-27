@@ -1,5 +1,5 @@
 <p align="center">
-	<h2 align="center"> chaos Gamers </h2>
+	<h2 align="center"> CHAOS GAMERS </h2>
 	<h4 align="center"> Designed a certificate generator that automatically maps the contents of a given certificate, retrieves the data of the certificate holder from a file and writes/prints the details accordingly at their intended locations. <h4>
 </p>
 
@@ -17,37 +17,13 @@
 ## Instructions to run
 
 * Instructions:
-	-  The Excel Sheet uploaded must contain only 3 columns in the given order:
-		Name
-		Project
-		Position
-	-  The App version can be accessed by the given .apk file.
-	-  The Web version can be accessed using the hosted website.
+	-  If you are new to the app then register yourself.
+	-  If you have already made an account on the app then login in
 
 ## Contributors
 
 <table>
 <tr align="center">
-
-<td>
-Shivansh Chadha
-<p align="center">
-<a href = "https://github.com/Shivansh187"><img src = "http://www.iconninja.com/files/241/825/211/round-collaboration-social-github-code-circle-network-icon.svg" width="36" height = "36" alt="GitHub"/></a>
-<a href = "https://www.linkedin.com/in/shivansh-chadha-3657bb108/">
-<img src = "http://www.iconninja.com/files/863/607/751/network-linkedin-social-connection-circular-circle-media-icon.svg" width="36" height="36" alt="LinkedIn"/>
-</a>
-</p>
-</td>
-
-<td>
-Jayesh Singh
-<p align="center">
-<a href = "https://github.com/jaguar017"><img src = "http://www.iconninja.com/files/241/825/211/round-collaboration-social-github-code-circle-network-icon.svg" width="36" height = "36" alt="GitHub"/></a>
-<a href = "https://www.linkedin.com/in/jayesh-singh-98872b1a1">
-<img src = "http://www.iconninja.com/files/863/607/751/network-linkedin-social-connection-circular-circle-media-icon.svg" width="36" height="36" alt="LinkedIn"/>
-</a>
-</p>
-</td>
 
 <td>
 Brajesh Kumar Roy
@@ -60,7 +36,7 @@ Brajesh Kumar Roy
 </td>
 
 <td>
-Dananjay Murugesh
+Tanisq Gandhi
 <p align="center">
 <a href = "https://github.com/DananjayM"><img src = "http://www.iconninja.com/files/241/825/211/round-collaboration-social-github-code-circle-network-icon.svg" width="36" height = "36" alt="GitHub"/></a>
 </p>
