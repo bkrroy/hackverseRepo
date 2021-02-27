@@ -54,6 +54,6 @@ Dhruv Singh
 <div>
 
 <p align="center">
-	Made with :heart: by Impostors
+	Made with :heart: by chaos coders
 </p>
 
