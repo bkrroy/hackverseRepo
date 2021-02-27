@@ -4,8 +4,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:chaosgames/screens/gamePage.dart';
-import 'package:sweetalert/sweetalert.dart';
-import 'dart:math';
 
 class HomePage extends StatefulWidget {
   @override
@@ -13,15 +11,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  bool onClick = true;
-  int gameCode = 1;
-
-  void changeNumber() {
-    setState(() {
-      gameCode = Random().nextInt(10000) + 1;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -35,6 +24,9 @@ class _HomePageState extends State<HomePage> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
+            SizedBox(
+              height: 100.0,
+            ),
             Expanded(
               child: Padding(
                 padding: const EdgeInsets.all(24.0),
@@ -48,20 +40,8 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                   onPressed: () {
-                    changeNumber();
-                    SweetAlert.show(
-                      context,
-                      title: "Game Join Code",
-                      subtitle: "$gameCode",
-                      onPress: (bool onClick) {
-                        if (onClick) {
-                          Navigator.pushNamed(context, GamePage.id);
-                        }
-                        return false;
-                      },
-                    );
-                    //Navigator.pushNamed(context, GamePage.id);
-                  },
+                    Navigator.pushNamed(context, GamePage.id);
+                  }, //Navigator.pushNamed(context, GamePage.id);
                 ),
               ),
             ),
@@ -82,6 +62,9 @@ class _HomePageState extends State<HomePage> {
                   },
                 ),
               ),
+            ),
+            SizedBox(
+              height: 100.0,
             ),
           ],
         ),

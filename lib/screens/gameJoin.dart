@@ -1,3 +1,4 @@
+import 'package:chaosgames/screens/mainGameScreen.dart';
 import 'package:chaosgames/screens/player_page.dart';
 import 'package:flutter/material.dart';
 import 'package:chaosgames/authentication_services.dart';
@@ -40,7 +41,7 @@ class _GameJoinState extends State<GameJoin> {
               title: 'Proceed',
               colour: Color(0xFFFF5252),
               onPressed: () {
-                Navigator.pushNamed(context, PlayerPage.id);
+                Navigator.pushNamed(context, GameScreen.id);
               },
             ),
           ],
