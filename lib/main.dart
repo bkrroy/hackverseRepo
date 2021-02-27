@@ -1,3 +1,5 @@
+import 'package:chaosgames/screens/gameJoin.dart';
+import 'package:chaosgames/screens/gamePage.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:chaosgames/screens/welcome_screen.dart';
@@ -7,7 +9,7 @@ import 'package:provider/provider.dart';
 import 'package:chaosgames/authentication_services.dart';
 import 'package:firebase_core/firebase_core.dart';
 
-Future<void> main() async{
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   runApp(ChaosGames());
@@ -22,7 +24,8 @@ class ChaosGames extends StatelessWidget {
           create: (_) => AuthenticationService(FirebaseAuth.instance),
         ),
         StreamProvider(
-          create: (context) => context.read<AuthenticationService>().authStateChanges,
+          create: (context) =>
+              context.read<AuthenticationService>().authStateChanges,
         )
       ],
       child: MaterialApp(
@@ -31,6 +34,8 @@ class ChaosGames extends StatelessWidget {
           WelcomeScreen.id: (context) => WelcomeScreen(),
           LoginPage.id: (context) => LoginPage(),
           RegisterPage.id: (context) => RegisterPage(),
+          GamePage.id: (context) => GamePage(),
+          GameJoin.id: (context) => GameJoin(),
         },
       ),
     );

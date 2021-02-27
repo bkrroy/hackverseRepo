@@ -3,7 +3,6 @@ import 'package:chaosgames/screens/login_page.dart';
 import 'package:chaosgames/screens/register_page.dart';
 import 'package:chaosgames/component/rouded_button.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
-//import 'package:flash_chat/components/rounded_button.dart';
 
 class WelcomeScreen extends StatefulWidget {
   static const String id = 'welcome_screen';
@@ -50,7 +49,11 @@ class _WelcomeScreenState extends State<WelcomeScreen>
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
-                Expanded(child: Image.asset('images/background.png', fit: BoxFit.cover,)),
+                Expanded(
+                    child: Image.asset(
+                  'images/background.png',
+                  fit: BoxFit.cover,
+                )),
                 Padding(
                   padding: const EdgeInsets.only(left: 20.0),
                   child: Row(
