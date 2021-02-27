@@ -21,7 +21,7 @@
 	-  If you have already made an account on the app then login in
 
 ## Contributors
-
+<div align = "center">
 <table>
 <tr align="center">
 
@@ -49,14 +49,9 @@ Dhruv Singh
 </p>
 </td>
 
-<td>
-Aditya Singh
-<p align="center">
-<a href = "https://github.com/adityajsingh"><img src = "http://www.iconninja.com/files/241/825/211/round-collaboration-social-github-code-circle-network-icon.svg" width="36" height = "36" alt="GitHub"/></a>
-</p>
-</td>
 </tr>
   </table>
+<div>
 
 <p align="center">
 	Made with :heart: by Impostors
