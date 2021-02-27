@@ -1,6 +1,6 @@
 <p align="center">
 	<h2 align="center"> CHAOS GAMERS </h2>
-	<h4 align="center"> Designed a certificate generator that automatically maps the contents of a given certificate, retrieves the data of the certificate holder from a file and writes/prints the details accordingly at their intended locations. <h4>
+	<h4 align="center"> An App that lets you play mini games with your friends. <h4>
 </p>
 
 ---
