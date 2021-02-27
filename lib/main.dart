@@ -1,5 +1,6 @@
 import 'package:chaosgames/screens/gameJoin.dart';
 import 'package:chaosgames/screens/gamePage.dart';
+import 'package:chaosgames/screens/player_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:chaosgames/screens/welcome_screen.dart';
@@ -36,6 +37,7 @@ class ChaosGames extends StatelessWidget {
           RegisterPage.id: (context) => RegisterPage(),
           GamePage.id: (context) => GamePage(),
           GameJoin.id: (context) => GameJoin(),
+          PlayerPage.id: (context) => PlayerPage(),
         },
       ),
     );

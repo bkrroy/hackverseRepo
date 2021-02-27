@@ -1,3 +1,4 @@
+import 'package:chaosgames/screens/player_page.dart';
 import 'package:flutter/material.dart';
 import 'package:chaosgames/authentication_services.dart';
 import 'package:provider/provider.dart';
@@ -30,7 +31,7 @@ class _GameJoinState extends State<GameJoin> {
           children: [
             TextField(
               textAlign: TextAlign.left,
-              onChanged: (value) {
+              onChanged: (String value) {
                 code = value;
               },
               decoration: kTextFieldDecoration.copyWith(hintText: 'Enter Code'),
@@ -38,7 +39,9 @@ class _GameJoinState extends State<GameJoin> {
             RoundedButton(
               title: 'Proceed',
               colour: Color(0xFFFF5252),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushNamed(context, PlayerPage.id);
+              },
             ),
           ],
         ),

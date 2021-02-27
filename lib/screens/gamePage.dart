@@ -1,3 +1,4 @@
+import 'package:chaosgames/screens/welcome_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:chaosgames/authentication_services.dart';
 import 'package:provider/provider.dart';
@@ -22,6 +23,7 @@ class _GamePageState extends State<GamePage> {
           child: Text('Sign Out'),
           onPressed: () {
             context.read<AuthenticationService>().signOut();
+            Navigator.pushNamed(context, WelcomeScreen.id);
           },
         ),
       ),
