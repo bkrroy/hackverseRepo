@@ -23,6 +23,7 @@
 - [✔]  Admin Authentication (Login and SignUp)
 - [✔]  Creating a game
 - [✔]  Joining a game
+- [✔]  Multiplayer platform
 - [✔]  Log Out
 
 <br>
