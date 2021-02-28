@@ -13,10 +13,9 @@
 * Description:
 	- This app has been created from scratch (NO PREVIOUS WORK WAS DONE ON THIS PROJECT) and gives users a multiplayer platform to play and enjoy together.
 	- This app promotes/helps friends to connect and have fun during COVID and further.
-	- Upon installation the user can either log in to his/her existing account or register for a new account.
-	- After login the user can either create/host a game and set the parameter for the games such as, the number of rounds etc.
-	- Upon creation of a new game the host of the game will recieve a unique Joining Code for the game which he/she can share with their friends to invite them to play.
-	- After the end of each round the users will be again redirected to home page where they can play again or sign out.
+	- The game is Two truths One lie.
+	- In the game the creator/host of the game provides 2 truths and 1 lie about them.
+	- The other players have to guess the lie and upon guessing correctly they recieve points.
 
 <br>
 
@@ -39,6 +38,10 @@
 	-  Upon the creation of game you will recieve a unique code which you can share with your friends to invite them to play.
 	-  For joining a game you need to enter the joining code and proceed to play the game.
 	-  You can also sign out of the app using the sign out button.
+	-  While playing the game the host can set the truths and lie and press click me to make it available for the other players.
+	-  The other players must click on the start button once to start the game (ONLY ONCE).
+	-  The other players can click on which statement they believe to be the lie. If guessed correctly they secure 100 points.
+	-  The host can then change the statements for the next round.
 
 <br>
 
