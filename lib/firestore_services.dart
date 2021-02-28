@@ -84,9 +84,7 @@ class FirestoreService extends ChangeNotifier {
     _firestore
         .collection('gameCode')
         .doc(code)
-        .collection('trueFalse')
-        .doc('score')
-        .set(score);
+        .collection('userScore').add(score);
   }
 
   Future<void> userScore(int updatedScore) async{
