@@ -1,3 +1,5 @@
+import 'package:chaosgames/firestore_services.dart';
+import 'package:chaosgames/screens/joined_Screen.dart';
 import 'package:chaosgames/screens/mainGameScreen.dart';
 import 'package:chaosgames/screens/player_page.dart';
 import 'package:flutter/material.dart';
@@ -41,7 +43,14 @@ class _GameJoinState extends State<GameJoin> {
               title: 'Proceed',
               colour: Color(0xFFFF5252),
               onPressed: () {
-                Navigator.pushNamed(context, GameScreen.id);
+                Provider.of<FirestoreService>(context, listen: false).getJoinCode(
+                  code: code,
+                  email: context.read<AuthenticationService>().getUser(),
+                );
+                Provider.of<FirestoreService>(context, listen: false).createUser(
+                  code: code,
+                );
+                Navigator.pushNamed(context, JoinedScreen.id);
               },
             ),
           ],

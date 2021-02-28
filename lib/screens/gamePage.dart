@@ -1,5 +1,6 @@
-import 'package:chaosgames/screens/player_page.dart';
+import 'package:chaosgames/firestore_services.dart';
 import 'package:chaosgames/screens/welcome_screen.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:chaosgames/authentication_services.dart';
@@ -7,9 +8,9 @@ import 'package:provider/provider.dart';
 import 'dart:math';
 import 'package:sweetalert/sweetalert.dart';
 import 'package:chaosgames/screens/mainGameScreen.dart';
-
 import '../authentication_services.dart';
 import 'homePage.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class GamePage extends StatefulWidget {
   static const String id = 'game_screen';
@@ -19,7 +20,7 @@ class GamePage extends StatefulWidget {
 }
 
 class _GamePageState extends State<GamePage> {
-  String dropdownValue = 'One';
+  String numberOfPlayers = 'One';
   String roundsValue = 'One';
   String time = '30sec';
 
@@ -30,6 +31,29 @@ class _GamePageState extends State<GamePage> {
     setState(() {
       gameCode = Random().nextInt(10000) + 1;
     });
+  }
+
+   createButton() async{
+    changeNumber();
+
+    Provider.of<FirestoreService>(context, listen: false).createrJoinCode(
+      gameCode: gameCode.toString(),
+      playerCount: numberOfPlayers,
+      roundCount: roundsValue,
+      time: time,
+    );
+
+    SweetAlert.show(
+      context,
+      title: "Game Join Code",
+      subtitle: "$gameCode",
+      onPress: (bool onClick) {
+        if (onClick) {
+          Navigator.pushNamed(context, GameScreen.id);
+        }
+        return false;
+      },
+    );
   }
 
   @override
@@ -63,7 +87,7 @@ class _GamePageState extends State<GamePage> {
                   ),
                   Center(
                     child: DropdownButton<String>(
-                      value: dropdownValue,
+                      value: numberOfPlayers,
                       icon: Icon(
                         Icons.keyboard_arrow_down_outlined,
                         color: Color(0xFFFF5252),
@@ -80,7 +104,7 @@ class _GamePageState extends State<GamePage> {
                       ),
                       onChanged: (String newValue) {
                         setState(() {
-                          dropdownValue = newValue;
+                          numberOfPlayers = newValue;
                         });
                       },
                       items: <String>['One', 'Two', 'Free', 'Four']
@@ -246,21 +270,7 @@ class _GamePageState extends State<GamePage> {
                         color: Colors.white,
                       ),
                     ),
-                    onPressed: () {
-                      changeNumber();
-                      SweetAlert.show(
-                        context,
-                        title: "Game Join Code",
-                        subtitle: "$gameCode",
-                        onPress: (bool onClick) {
-                          if (onClick) {
-                            Navigator.pushNamed(context, GameScreen.id);
-                          }
-                          return false;
-                        },
-                      );
-                      //Navigator.pushNamed(context, GamePage.id);
-                    },
+                    onPressed: createButton,
                   ),
                 ],
               ),

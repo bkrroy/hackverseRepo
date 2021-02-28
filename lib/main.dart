@@ -1,6 +1,9 @@
+import 'package:chaosgames/firestore_services.dart';
 import 'package:chaosgames/screens/gameJoin.dart';
 import 'package:chaosgames/screens/gamePage.dart';
+import 'package:chaosgames/screens/joined_Screen.dart';
 import 'package:chaosgames/screens/player_page.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:chaosgames/screens/welcome_screen.dart';
@@ -31,7 +34,10 @@ class ChaosGames extends StatelessWidget {
         StreamProvider(
           create: (context) =>
               context.read<AuthenticationService>().authStateChanges,
-        )
+        ),
+        ChangeNotifierProvider<FirestoreService>(
+          create: (_) => FirestoreService(FirebaseFirestore.instance),
+        ),
       ],
       child: MaterialApp(
         initialRoute: WelcomeScreen.id,
@@ -44,6 +50,7 @@ class ChaosGames extends StatelessWidget {
           PlayerPage.id: (context) => PlayerPage(),
           GameScreen.id: (context) => GameScreen(),
           HomePage.id : (context) => HomePage(),
+          JoinedScreen.id: (context) => JoinedScreen(),
         },
       ),
     );

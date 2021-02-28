@@ -1,5 +1,7 @@
+import 'package:chaosgames/firestore_services.dart';
 import 'package:flutter/material.dart';
 import 'package:circular_countdown_timer/circular_countdown_timer.dart';
+import 'package:provider/provider.dart';
 
 class GameScreen extends StatefulWidget {
   static const String id = 'gameScreen_screen';
@@ -9,90 +11,67 @@ class GameScreen extends StatefulWidget {
 }
 
 class _GameScreenState extends State<GameScreen> {
+
+  String _truth1;
+  String _truth2;
+  String _lie;
+
+  InputDecoration _inputDecorationTruth = InputDecoration(
+    hintText: 'Truth'
+  );
+
   @override
   Widget build(BuildContext context) {
+    final screenHeight = MediaQuery.of(context).size.height;
+    final screenwidth = MediaQuery.of(context).size.width;
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
           title: Text('ChaosGames'),
           backgroundColor: Color(0xFF253A4B),
         ),
-        body: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Column(
-              children: [
-                SizedBox(
-                  height: 100.0,
-                ),
-                Expanded(
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: FlatButton(
-                      color: Colors.orange,
-                      child: Text('Lorem Ipsum'),
-                      onPressed: () {},
-                    ),
-                  ),
-                ),
-                Expanded(
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: FlatButton(
-                      color: Colors.green,
-                      child: Text('Lorem Ipsum'),
-                      onPressed: () {},
-                    ),
-                  ),
-                ),
-                Expanded(
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: FlatButton(
-                      color: Colors.blue,
-                      child: Text('Lorem Ipsum'),
-                      onPressed: () {},
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                CircularCountDownTimer(
-                  duration: 10,
-                  initialDuration: 0,
-                  controller: CountDownController(),
-                  width: MediaQuery.of(context).size.width / 4,
-                  height: MediaQuery.of(context).size.height / 6,
-                  ringColor: Colors.grey[300],
-                  ringGradient: null,
-                  fillColor: Colors.purpleAccent[100],
-                  fillGradient: null,
-                  backgroundColor: Colors.purple[500],
-                  backgroundGradient: null,
-                  strokeWidth: 20.0,
-                  strokeCap: StrokeCap.round,
-                  textStyle: TextStyle(
-                      fontSize: 33.0,
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold),
-                  textFormat: CountdownTextFormat.S,
-                  isReverse: false,
-                  isReverseAnimation: false,
-                  isTimerTextShown: true,
-                  autoStart: false,
-                  onStart: () {
-                    print('Countdown Started');
+        body: Container(
+          height: screenHeight,
+          width: screenwidth,
+          child: Column(
+            children: [
+              Container(
+                height: 60,
+                width: screenwidth,
+                child: Center(child: Text(Provider.of<FirestoreService>(context, listen: true).getCreatedCode())),
+              ),
+              TextField(
+                onChanged: (String value){
+                  _truth1 = value;
+                },
+                decoration: _inputDecorationTruth
+              ),
+              TextField(
+                  onChanged: (String value){
+                    _truth2 = value;
                   },
-                  onComplete: () {
-                    print('Countdown Ended');
-                  },
+                decoration: _inputDecorationTruth
+              ),
+              TextField(
+                onChanged: (String value){
+                  _lie = value;
+                },
+                decoration: InputDecoration(
+                  hintText: 'Lie'
                 ),
-              ],
-            ),
-          ],
+              ),
+              FlatButton(
+                child: Text('Click Me'),
+                onPressed: (){
+                  Provider.of<FirestoreService>(context, listen: false).truthAndLieData(
+                    truth1: _truth1,
+                    truth2: _truth2,
+                    lie: _lie,
+                  );
+                },
+              ),
+            ],
+          ),
         ),
       ),
     );
