@@ -86,6 +86,6 @@ Dhruv Singh
 <div>
 
 <p align="center">
-	Made with :heart: by chaos coders
+	Made with :heart: by Chaos Coders
 </p>
 
